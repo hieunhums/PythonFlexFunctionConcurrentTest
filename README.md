@@ -77,18 +77,46 @@ The HTTP trigger function (`http_trigger`) demonstrates concurrency by:
 
 ## Example Output
 
-```
+```bash
+Testing concurrent execution with 20 parallel requests...
+Each request will sleep for 5 seconds
+If concurrency works, total time should be ~5 seconds, not 100 seconds
+
+Sending requests...
+
+=========================================
+RESULTS SUMMARY
+=========================================
+Total execution time: 7 seconds
+
 REQUEST DETAILS:
 
 Request      Process  Thread       Start           End            
 ---------------------------------------------------------------
-request-1    PID:55   130210...    14:29:06.169    14:29:11.170   
-request-2    PID:54   125552...    14:29:06.052    14:29:11.052   
-...
+request-1    PID:55   139569...    14:34:53.542    14:34:58.542   
+request-2    PID:54   133272...    14:34:52.689    14:34:57.689   
+request-3    PID:55   132858...    14:34:53.344    14:34:58.344   
+request-4    PID:55   131676...    14:34:53.570    14:34:58.570   
+request-5    PID:54   126416...    14:34:53.664    14:34:58.664   
+request-6    PID:54   132325...    14:34:53.533    14:34:58.533   
+request-7    PID:56   129097...    14:34:53.527    14:34:58.528   
+request-8    PID:54   128888...    14:34:53.555    14:34:58.555   
+request-9    PID:55   129700...    14:34:53.422    14:34:58.422   
+request-10   PID:56   125095...    14:34:53.566    14:34:58.566   
+request-11   PID:54   132213...    14:34:53.697    14:34:58.698   
+request-12   PID:55   137108...    14:34:53.609    14:34:58.609   
+request-13   PID:57   130618...    14:34:53.538    14:34:58.538   
+request-14   PID:54   134919...    14:34:53.688    14:34:58.688   
+request-15   PID:55   134302...    14:34:53.472    14:34:58.472   
+request-16   PID:54   125025...    14:34:53.462    14:34:58.463   
+request-17   PID:54   125258...    14:34:53.640    14:34:58.640   
+request-18   PID:54   132076...    14:34:53.499    14:34:58.499   
+request-19   PID:55   124002...    14:34:53.465    14:34:58.466   
+request-20   PID:55   127864...    14:34:53.672    14:34:58.672   
 
 CONCURRENCY STATS:
 -----------------
-Unique processes: 5 (PIDs: 53 54 55 56 57)
+Unique processes:        4 (PIDs: 54 55 56 57 )
 
 SYSTEM INFO:
 -----------------
@@ -96,6 +124,8 @@ CPU Count: 4 vCPUs
 CPU Info: Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz (4 cores detected)
 Memory: 3.87 GB
 Platform: Linux 5.15.164.1-1.cm2
+
+✅ RESULT: Concurrency is working! 20 requests processed in parallel.
 ```
 
 ## Performance Recommendations
